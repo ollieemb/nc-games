@@ -54,6 +54,10 @@ return(
                 <button>Downvote</button>
                 <br/>
                 <br/>
+                <button> View Comments </button>
+                <br/>
+                <br/>
+                <br/>
                 <br/>
                 <br/>
                 
