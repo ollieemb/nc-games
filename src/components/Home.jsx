@@ -1,40 +1,22 @@
-import { getReviews } from "../utils/api";
-import { useEffect, useState } from "react";
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getReviews } from '../utils/api';
 
-const Home = () => {
+function Home() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     getReviews().then((reviewsData) => {
-      setReviews(reviewsData)
+      setReviews(reviewsData);
     }) 
   }, [])
 
   return(
     <>
-      <form> 
-        <input
-          type='text'
-          placeholder="Search Box to complete"
-        />
-      </form>
-      <br/>
-      <form>
-        <button>Cat1</button>
-        <button>Cat2</button>
-        <button>Cat3</button>
-        <button>Cat4</button>
-      </form>
-      <br/>
-      <form>
-        <button>User Profile</button>
-      </form>
-
       <ul className="card-container">
         {reviews.map((review) => {
           return(
-            <li className='card' key={review.title}>
+            <li className='card' key={review.review_id}>
               <img 
                 src={review.review_img_url}
                 alt={review.title}
@@ -51,12 +33,10 @@ const Home = () => {
               <button>Downvote</button>
               <br/>
               <br/>
-              <button> View Review and comments </button>
+              <Link to={`/reviews/${review.review_id}`}>View Review and Comments</Link>
               <br/>
               <br/>
               <br/>
-              <br/>
-              <br/> 
             </li>
           )
         })}

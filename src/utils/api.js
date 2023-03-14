@@ -10,3 +10,8 @@ export const getReviews = () => {
     })
 }
 
+export const getReviewsID = (review_id) => {
+    return reviewsApi.get(`/reviews/${review_id}`).then(({data}) => {
+        return data.review;
+    })
+}
