@@ -39,6 +39,8 @@ function SingleCard() {
       
 
 <Link to="/">Back to Home</Link>
+      <br />
+        <br />
       </>
 
     )

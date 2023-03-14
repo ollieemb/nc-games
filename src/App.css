@@ -18,6 +18,11 @@
   list-style-type: none;
 }
 
+.comments{
+  color: red;
+  border: 5px solid gray;
+}
+
 @media only screen and (max-width: 1200px) {
   .card {
     width: calc(50% - 10px);
