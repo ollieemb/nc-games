@@ -2,6 +2,7 @@ import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react';
 import {getReviewsID} from '../utils/api'
 import { Link } from 'react-router-dom';
+import Comments from './Comments'
 
 function SingleCard() {
     const { review_id } = useParams();
@@ -34,6 +35,7 @@ function SingleCard() {
         <br />
         <br />
         <h3>Comments:</h3>
+        <Comments/>
       
 
 <Link to="/">Back to Home</Link>
