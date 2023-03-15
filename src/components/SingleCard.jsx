@@ -4,6 +4,7 @@ import {getReviewsID} from '../utils/api'
 import { Link } from 'react-router-dom';
 import Comments from './Comments'
 
+
 function SingleCard() {
     const { review_id } = useParams();
     const [reviewData, setReviewData] = useState();
