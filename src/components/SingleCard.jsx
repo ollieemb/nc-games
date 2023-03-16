@@ -34,7 +34,7 @@ function SingleCard({ review }) {
   if (!reviewData) return null;
 
   return (
-    <>
+    <div key={review_id}>
       <h2>Title: {reviewData[0].title}</h2>
       <img src={reviewData[0].review_img_url} alt={reviewData[0].title} />
       <p>Designer: {reviewData[0].designer}</p>
@@ -59,7 +59,7 @@ function SingleCard({ review }) {
       <Link to="/">Back to Home</Link>
       <br />
       <br />
-    </>
+    </div>
   );
 }
 

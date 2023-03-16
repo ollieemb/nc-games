@@ -17,7 +17,7 @@ function Home() {
   
   return(
     <div>
-    {isLoading ? <p className='loadingReviews'>Loading Reviews</p> : <>
+    {isLoading ? <p className='loadingReviews' key="loading">Loading Reviews</p> : <>
       <ul className="card-container">
         {reviews.map((review) => {
           return <ReviewCard review={review} />
