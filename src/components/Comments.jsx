@@ -7,6 +7,7 @@ function Comments() {
   const { review_id } = useParams();
   const [commentsData, setCommentsData] = useState([]);
   const [newComment, setNewComment] = useState('')
+  const [hasCommented, setHasCommented] = useState(false)
   
   useEffect(() => {
     getComments(review_id).then((comments) => {
@@ -16,15 +17,15 @@ function Comments() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('review_id:', review_id);
-    console.log('newComment:', newComment);
-    console.log('username')
+   
     postComment(newComment, review_id).then((newCommentFromApi) => {
       console.log(newCommentFromApi);
       setCommentsData((currentComments) => {
         return [...currentComments, newCommentFromApi]
       });
       setNewComment('');
+      setHasCommented(true);
+      alert('Comment posted thanks for your contribution!!')
     }).catch((error) => {
       console.error(error);
     })
@@ -43,9 +44,9 @@ function Comments() {
    />
     <br/>
     <br/>
-   <button type='submit'>Post</button>
+   <button type='submit' disabled={hasCommented}>Post</button>
     </form>
-
+    {hasCommented && <p className='commentTracker'> You have commented on this review</p>}
     <br/>
     <br/>
    
