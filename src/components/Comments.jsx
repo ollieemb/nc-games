@@ -9,7 +9,6 @@ function Comments() {
   useEffect(() => {
     getComments(review_id).then((comments) => {
       setCommentsData(comments);
-      console.log(comments);
     });
   }, [review_id]);
 

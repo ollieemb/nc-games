@@ -21,3 +21,13 @@ export const getComments = (review_id) =>  {
         return data.comments;
     })
 } 
+
+export const voteOnReviewHome = (review_id) => {
+    return reviewsApi.patch(`/reviews/${review_id}`, { inc_votes: 1 })
+      .then(({ data }) => {
+        return data.review;
+      });
+  };
+  
+  
+  
