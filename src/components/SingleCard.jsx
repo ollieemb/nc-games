@@ -40,7 +40,8 @@ function SingleCard({ review }) {
       <p>Designer: {reviewData[0].designer}</p>
       <p>Owner: {reviewData[0].owner}</p>
       <p>Category: {reviewData[0].category}</p>
-      <p>Created at: {reviewData[0].created_at}</p>
+      <p>Created at: {new Date(reviewData[0].created_at).toLocaleString({dateStyle: 'full', timeStyle:'short'})}</p>
+
       <p>Votes: {reviewData[0].votes + userVote}</p>
       <p>Comment count: {reviewData[0].comment_count}</p>
       <button

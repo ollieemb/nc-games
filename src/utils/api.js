@@ -30,4 +30,15 @@ export const voteOnReviewHome = (review_id) => {
   };
   
   
+  export const postComment = (newComment, review_id) => {
+    const data = {
+      username: 'jessjelly',
+      body: newComment,
+    };
   
+    return reviewsApi
+      .post(`/reviews/${review_id}/comments`, data)
+      .then(({ data }) => {
+        return data.comment[0];
+      });
+  };

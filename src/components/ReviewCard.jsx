@@ -31,7 +31,8 @@ function ReviewCard ({review}) {
           <p>Designer: {review.designer}</p>
           <p> Owner: {review.owner}</p>
           <p>Category: {review.category}</p>
-          <p>Created At: {review.created_at}</p>
+          <p>Created At: {new Date(review.created_at).toLocaleString({ dateStyle: 'full', timeStyle: 'short' })}</p>
+          
           <p>Comment Count: {review.comment_count}</p>
           <p>Votes: {review.votes + userVote}</p>
           <button
