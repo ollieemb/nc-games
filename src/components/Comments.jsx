@@ -8,28 +8,39 @@ function Comments() {
   const [commentsData, setCommentsData] = useState([]);
   const [newComment, setNewComment] = useState('')
   const [hasCommented, setHasCommented] = useState(false)
+  const [isPosting, setIsPosting] = useState(false)
+
   
   useEffect(() => {
     getComments(review_id).then((comments) => {
       setCommentsData(comments);
     });
   }, [review_id]);
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-   
-    postComment(newComment, review_id).then((newCommentFromApi) => {
-      console.log(newCommentFromApi);
-      setCommentsData((currentComments) => {
-        return [...currentComments, newCommentFromApi]
+    if (hasCommented) {
+      alert('You have already commented on this review!');
+      return;
+    }
+    setIsPosting(true);
+    postComment(newComment, review_id)
+      .then((newCommentFromApi) => {
+        console.log(newCommentFromApi);
+        setCommentsData((currentComments) => {
+          return [...currentComments, newCommentFromApi];
+        });
+        setNewComment('');
+        setHasCommented(true);
+        setIsPosting(false);
+  
+        alert('Comment posted thanks for your contribution!!');
+      })
+      .catch((error) => {
+        console.error(error);
       });
-      setNewComment('');
-      setHasCommented(true);
-      alert('Comment posted thanks for your contribution!!')
-    }).catch((error) => {
-      console.error(error);
-    })
-  }
+  };
+  
 
   return (
 <div> 
@@ -44,7 +55,7 @@ function Comments() {
    />
     <br/>
     <br/>
-   <button type='submit' disabled={hasCommented}>Post</button>
+   <button type='submit' disabled={isPosting}>Post</button>
     </form>
     {hasCommented && <p className='commentTracker'> You have commented on this review</p>}
     <br/>
