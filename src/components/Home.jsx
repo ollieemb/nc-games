@@ -44,7 +44,7 @@ const handleCategoryClick = (category) => {
       value={selectedSortBy}
       onChange={(event) => setSelectedSortBy(event.target.value)}
       >
-    <option >Sort By Default</option>
+    <option >Sort By Default!</option>
 
     <option value="votes">Votes</option>
     <option value="designer">Designer</option>
