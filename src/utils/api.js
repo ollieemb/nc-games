@@ -49,3 +49,18 @@ export const voteOnReviewHome = (review_id) => {
         return data.comment[0];
       });
   };
+
+  export const sortReviews = (sort_by, category) => {
+    let path = `/reviews`;
+    return reviewsApi
+    .get(path,{
+      params: {
+        sort_by,
+        category
+      }
+    })
+    .then(({data}) => {
+      return data.reviews
+    })
+  }
+
