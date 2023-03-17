@@ -4,10 +4,17 @@ const reviewsApi = axios.create({
     baseURL: 'https://be-project-oe2.onrender.com/api' ,
 });
 
-export const getReviews = () => {
-    return reviewsApi.get('/reviews').then(({data}) => {
-        return data.reviews;
-    })
+// export const getReviews = () => {
+//     return reviewsApi.get('/reviews').then(({data}) => {
+//         return data.reviews;
+//     })
+// }
+
+export const getReviews = (category) => {
+  const params = category ? {category: category} : {};
+  return reviewsApi.get(`reviews`, {params}).then(({data}) => {
+    return data.reviews
+  })
 }
 
 export const getReviewsID = (review_id) => {
