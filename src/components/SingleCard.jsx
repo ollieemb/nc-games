@@ -34,18 +34,20 @@ function SingleCard({ review }) {
   if (!reviewData) return null;
 
   return (
-    <div key={review_id}>
-      <h2>Title: {reviewData[0].title}</h2>
-      <img src={reviewData[0].review_img_url} alt={reviewData[0].title} />
-      <p>Designer: {reviewData[0].designer}</p>
-      <p>Owner: {reviewData[0].owner}</p>
-      <p>Category: {reviewData[0].category}</p>
-      <p>Created at: {new Date(reviewData[0].created_at).toLocaleString({dateStyle: 'full', timeStyle:'short'})}</p>
 
-      <p>Votes: {reviewData[0].votes + userVote}</p>
-      <p>Comment count: {reviewData[0].comment_count}</p>
+<div key={review_id} className="reviewCardDiv">
+  <h2> {reviewData[0].title}</h2>
+  <img src={reviewData[0].review_img_url} alt={reviewData[0].title} />
+  <p><span class="designer-title">Designer:</span> {reviewData[0].designer}</p>
+  <p><span class="owner-title">Owner:</span> {reviewData[0].owner}</p>
+  <p><span class="category-title">Category:</span> {reviewData[0].category}</p>
+  <p><span class="created-at-title">Created at:</span> {new Date(reviewData[0].created_at).toLocaleString({dateStyle: 'full', timeStyle:'short'})}</p>
+
+  <p><span class="votes-title">Votes: </span>{reviewData[0].votes + userVote}</p>
+      {/* <p>Comment count: {reviewData[0].comment_count}</p> */}
       <button
         type="button"
+        className='upvoteButton'
         onClick={onClick}
         disabled={userVote !== 0}
       >
@@ -57,7 +59,7 @@ function SingleCard({ review }) {
       <h3>Comments:</h3>
       <Comments />
 
-      <Link to="/">Back to Home</Link>
+      <Link to="/" className='backToHome'>Back to Home</Link>
       <br />
       <br />
     </div>

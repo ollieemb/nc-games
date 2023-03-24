@@ -27,15 +27,16 @@ function ReviewCard ({review}) {
             alt={review.title}
             className="pictureCard"
           />
-          <h2> Title: {review.title}</h2>
-          <p>Designer: {review.designer}</p>
-          <p> Owner: {review.owner}</p>
-          <p>Category: {review.category}</p>
-          <p>Created At: {new Date(review.created_at).toLocaleString({ dateStyle: 'full', timeStyle: 'short' })}</p>
-          
-          <p>Comment Count: {review.comment_count}</p>
-          <p>Votes: {review.votes + userVote}</p>
+          <h2 className='reviewCardh2'>  {review.title}</h2>
+          <p><span class="review-label">Creator:</span> <span class="review-value">{review.designer}</span></p>
+<p><span class="review-label">Owner:</span> <span class="review-value">{review.owner}</span></p>
+<p><span class="review-label">Category:</span> <span class="review-value">{review.category}</span></p>
+<p><span class="review-label">Posted:</span> <span class="review-value">{new Date(review.created_at).toLocaleString({ dateStyle: 'full', timeStyle: 'short' })}</span></p>
+<p><span class="review-label">Comment Count:</span> <span class="review-value">{review.comment_count}</span></p>
+<p><span class="review-label">Votes: </span> <span class="review-value">{review.votes + userVote}</span></p>
+
           <button
+className='upvoteButton'
 type="button"
 onClick={() => onClick(review.review_id)}
 disabled={userVote !== 0}
@@ -47,7 +48,7 @@ Upvote
          
           <br/>
           <br/>
-          <Link to={`/reviews/${review.review_id}`}>View Review and Comments</Link>
+          <Link to={`/reviews/${review.review_id}`} className="linkToComments">View Review and Comments</Link>
           <br/>
           <br/>
           <br/>
