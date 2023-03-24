@@ -41,7 +41,7 @@ function SingleCard({ review }) {
   <p><span class="designer-title">Designer:</span> {reviewData[0].designer}</p>
   <p><span class="owner-title">Owner:</span> {reviewData[0].owner}</p>
   <p><span class="category-title">Category:</span> {reviewData[0].category}</p>
-  <p><span class="created-at-title">Created at:</span> {new Date(reviewData[0].created_at).toLocaleString({dateStyle: 'full', timeStyle:'short'})}</p>
+  <p><span class="created-at-title">Created at:</span> {new Date(reviewData[0].created_at).toLocaleString({dateStyle: 'full', timeStyle:'short' })}</p>
 
   <p><span class="votes-title">Votes: </span>{reviewData[0].votes + userVote}</p>
       {/* <p>Comment count: {reviewData[0].comment_count}</p> */}
@@ -64,6 +64,7 @@ function SingleCard({ review }) {
       <br />
     </div>
   );
+  
 }
 
 export default SingleCard;

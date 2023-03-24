@@ -47,11 +47,10 @@ Upvote
 
          
           <br/>
-          <br/>
+          
           <Link to={`/reviews/${review.review_id}`} className="linkToComments">View Review and Comments</Link>
           <br/>
-          <br/>
-          <br/>
+          
         </li>
       )
 
